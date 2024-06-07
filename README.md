@@ -1,6 +1,6 @@
-# Grub Roulette
+# Route Roulette
 
-A simple, free, and open-source web app that helps you find a random restaurant near you. Discover new and locally owned places! :)
+A simple, free, and open-source web app that helps get a random scenic drive near you.
 
 ## Built With
 
@@ -10,7 +10,7 @@ A simple, free, and open-source web app that helps you find a random restaurant 
 - [Material UI](https://mui.com/)
 - [Google Maps API](https://developers.google.com/maps)
 
-[Visit Grub Roulette](https://grubroulette.app)
+[Visit Route Roulette](https://routeroulette.app)
 
 ---
 
@@ -23,8 +23,8 @@ We welcome contributions from the community! Follow the steps below to set up th
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/harryt04/grub-roulette.git grub-roulette
-   cd grub-roulette
+   git clone https://github.com/harryt04/route-roulette.git route-roulette
+   cd route-roulette
    ```
 
 2. **Create your feature branch:**
@@ -66,4 +66,4 @@ We welcome contributions from the community! Follow the steps below to set up th
 
 ---
 
-Thank you for contributing to Grub Roulette! Your help is greatly appreciated.
+Thank you for contributing to Route Roulette! Your help is greatly appreciated.

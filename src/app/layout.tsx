@@ -7,7 +7,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
-  title: 'Grub Roulette',
+  title: 'Route Roulette',
   description: 'Randomly choose a restaurant near you',
 }
 
