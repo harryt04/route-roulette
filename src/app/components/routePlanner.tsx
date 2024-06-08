@@ -93,6 +93,7 @@ export const RoutePlanner = () => {
             color="primary"
             onClick={handlePlanRoute}
             startIcon={<RouteIcon />}
+            disabled={loading}
           >
             Plan route
           </Button>

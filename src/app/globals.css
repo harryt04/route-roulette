@@ -39,3 +39,7 @@ body {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
+.loading-spinner {
+  padding-top: 2rem;
+}
