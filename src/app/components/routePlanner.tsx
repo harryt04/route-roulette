@@ -6,6 +6,7 @@ import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import {
   constructGoogleMapsUrl,
+  CurrentLocation,
   getRoute,
   Waypoint,
 } from '../client-utils/getRoute'
@@ -136,7 +137,10 @@ export const RoutePlanner = () => {
                 variant="contained"
                 color="secondary"
                 target="_blank"
-                href={constructGoogleMapsUrl(waypoints.slice(0, numWaypoints))}
+                href={constructGoogleMapsUrl(
+                  location as CurrentLocation,
+                  waypoints.slice(0, numWaypoints),
+                )}
                 startIcon={<DirectionsIcon />}
               >
                 Directions

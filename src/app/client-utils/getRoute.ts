@@ -28,15 +28,23 @@ interface Location {
   lng: number
 }
 
+export interface CurrentLocation {
+  latitude: number
+  longitude: number
+}
+
 export interface Waypoint {
   name: string
   location: Location
 }
 
-export function constructGoogleMapsUrl(waypoints: Waypoint[]): string {
+export function constructGoogleMapsUrl(
+  currentLocation: CurrentLocation,
+  waypoints: Waypoint[],
+): string {
   if (!waypoints || waypoints.length === 0) return ''
   const baseUrl = 'https://www.google.com/maps/dir/?api=1'
-  const origin = `${waypoints[0].location.lat},${waypoints[0].location.lng}`
+  const origin = `${currentLocation.latitude},${currentLocation.longitude}`
   const destination = `${waypoints[waypoints.length - 1].location.lat},${waypoints[waypoints.length - 1].location.lng}`
 
   const waypointParams = waypoints
