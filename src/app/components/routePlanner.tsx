@@ -17,13 +17,14 @@ import DirectionsIcon from '@mui/icons-material/Directions'
 import CircularProgress from '@mui/material/CircularProgress'
 import IconButton from '@mui/material/IconButton'
 import CancelIcon from '@mui/icons-material/Cancel'
+import Divider from '@mui/material/Divider'
 
 export const RoutePlanner = () => {
   const [initialized, setInitialized] = useState(false)
   const [loading, setLoading] = useState(false)
   const [waypoints, setWaypoints] = useState<Waypoint[]>([])
   const [radius, setRadius] = useState(15)
-  const [numPitStops, setNumPitStops] = useState(5)
+  const [numWaypoints, setNumWaypoints] = useState(5)
   const [duration, setDuration] = useState(60)
 
   const { location, geoLocationError } = useGeolocation()
@@ -49,9 +50,9 @@ export const RoutePlanner = () => {
 
   return (
     <div className="center">
+      <DarkModeSwitch />
       <Card className="card">
         <CardContent>
-          <DarkModeSwitch />
           <div className="form-container">
             <TextField
               id="radius"
@@ -74,12 +75,12 @@ export const RoutePlanner = () => {
               color="secondary"
             />
             <TextField
-              id="pitstops"
-              label="Number of pitstops"
+              id="waypoints"
+              label="Number of waypoints"
               variant="outlined"
               type="number"
-              value={Number(numPitStops).toString()}
-              onChange={(event) => setNumPitStops(Number(event.target.value))}
+              value={Number(numWaypoints).toString()}
+              onChange={(event) => setNumWaypoints(Number(event.target.value))}
               className="textfield"
               color="secondary"
             />
@@ -93,7 +94,6 @@ export const RoutePlanner = () => {
           >
             Plan route
           </Button>
-
           {loading && (
             <div className="loading-spinner">
               <CircularProgress />
@@ -102,9 +102,11 @@ export const RoutePlanner = () => {
 
           {!loading && waypoints.length > 0 && (
             <>
+              <div className="spacer"></div>
+              <Divider />
               <div className="waypoint-container">
                 <Typography variant="h6">Waypoints</Typography>
-                {waypoints.slice(0, numPitStops).map((waypoint, index) => (
+                {waypoints.slice(0, numWaypoints).map((waypoint, index) => (
                   <div key={index} className="waypoint-item-container">
                     <IconButton
                       onClick={() => handleRemoveWaypoint(index)}
@@ -120,7 +122,7 @@ export const RoutePlanner = () => {
                 variant="contained"
                 color="secondary"
                 target="_blank"
-                href={constructGoogleMapsUrl(waypoints.slice(0, numPitStops))}
+                href={constructGoogleMapsUrl(waypoints.slice(0, numWaypoints))}
                 startIcon={<DirectionsIcon />}
               >
                 Directions

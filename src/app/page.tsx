@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <div className="center">
       <div className="title-container">
-        <Typography variant="h2">Route Roulette</Typography>
+        <Typography variant={isMobile ? 'h3' : 'h2'}>Route Roulette</Typography>
       </div>
       <RoutePlanner />
     </div>

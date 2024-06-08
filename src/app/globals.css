@@ -16,6 +16,7 @@ body {
   min-width: 40vw !important;
   display: grid;
   place-items: center;
+  padding-top: 1rem;
 }
 
 .title-container {
@@ -36,8 +37,8 @@ body {
 }
 
 .waypoint-container {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .loading-spinner {
@@ -51,4 +52,30 @@ body {
   column-gap: 0.5rem;
   padding-left: 1rem;
   align-items: center;
+}
+
+.spacer {
+  padding-top: 2rem;
+}
+
+/* if screen is tablet or BIGGER */
+@media (min-width: 768px) {
+  .centeredSnackbar {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* if screen is tablet or SMALLER */
+@media (max-width: 768px) {
+  .body {
+    max-width: 90vw;
+  }
+  .textfield {
+    width: 80vw !important;
+  }
+
+  .card {
+    width: 100% !important;
+  }
 }
