@@ -91,7 +91,7 @@ export const RoutePlanner = () => {
             color="primary"
             onClick={handlePlanRoute}
             startIcon={<RouteIcon />}
-            disabled={loading}
+            disabled={loading || !location}
           >
             Plan route
           </Button>
@@ -104,6 +104,7 @@ export const RoutePlanner = () => {
           {geoLocationError &&
             geoLocationError === GeoLocationError.PERMISSION_DENIED && (
               <>
+                <div className="spacer"></div>
                 <Typography variant="h6">
                   Please allow geolocation permissions and refresh this page
                 </Typography>
@@ -150,8 +151,6 @@ export const RoutePlanner = () => {
 
           {waypoints.length === 0 && initialized && !loading && (
             <>
-              <div className="spacer"></div>
-              <Divider />
               <div className="spacer"></div>
               <Typography variant="h6">No waypoints found</Typography>
             </>
