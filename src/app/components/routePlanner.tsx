@@ -15,21 +15,22 @@ import TextField from '@mui/material/TextField'
 import DarkModeSwitch from './darkModeSwitch'
 import DirectionsIcon from '@mui/icons-material/Directions'
 import CircularProgress from '@mui/material/CircularProgress'
+import IconButton from '@mui/material/IconButton'
+import CancelIcon from '@mui/icons-material/Cancel'
 
 export const RoutePlanner = () => {
-  // const [keywords, setKeywords] = useState('')
   const [initialized, setInitialized] = useState(false)
   const [loading, setLoading] = useState(false)
   const [waypoints, setWaypoints] = useState<Waypoint[]>([])
   const [radius, setRadius] = useState(15)
-  const [numPitStops, setNumPitStops] = useState(2)
+  const [numPitStops, setNumPitStops] = useState(5)
   const [duration, setDuration] = useState(60)
 
   const { location, geoLocationError } = useGeolocation()
+
   const handlePlanRoute = async () => {
     setLoading(true)
     setInitialized(true)
-    // Implement route planning logic here
     if (!location) return
     const result = await getRoute(
       location.latitude,
@@ -39,24 +40,19 @@ export const RoutePlanner = () => {
     )
     if (result) setWaypoints(result)
 
-    const googleMapsUrl = constructGoogleMapsUrl(result)
     setLoading(false)
   }
+
+  const handleRemoveWaypoint = (index: number) => {
+    setWaypoints((prevWaypoints) => prevWaypoints.filter((_, i) => i !== index))
+  }
+
   return (
     <div className="center">
       <Card className="card">
         <CardContent>
           <DarkModeSwitch />
           <div className="form-container">
-            {/* <TextField
-              id="keywords"
-              label="Search (optional) i.e. 'coffee, park'"
-              variant="outlined"
-              value={keywords}
-              onChange={(event) => setKeywords(event.target.value)}
-              className="textfield"
-              color="secondary"
-            /> */}
             <TextField
               id="radius"
               label="Maximum distance (miles)"
@@ -105,14 +101,21 @@ export const RoutePlanner = () => {
           )}
 
           {!loading && waypoints.length > 0 && (
-            <div className="waypoint-container">
-              <Typography variant="h6">Waypoints</Typography>
-              <ul>
+            <>
+              <div className="waypoint-container">
+                <Typography variant="h6">Waypoints</Typography>
                 {waypoints.slice(0, numPitStops).map((waypoint, index) => (
-                  <li key={index}>{waypoint.name}</li>
+                  <div key={index} className="waypoint-item-container">
+                    <IconButton
+                      onClick={() => handleRemoveWaypoint(index)}
+                      color="error"
+                    >
+                      <CancelIcon />
+                    </IconButton>
+                    <Typography variant="body1">{waypoint.name}</Typography>
+                  </div>
                 ))}
-              </ul>
-
+              </div>
               <Button
                 variant="contained"
                 color="secondary"
@@ -122,7 +125,7 @@ export const RoutePlanner = () => {
               >
                 Directions
               </Button>
-            </div>
+            </>
           )}
 
           {waypoints.length === 0 && initialized && !loading && (

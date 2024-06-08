@@ -43,3 +43,12 @@ body {
 .loading-spinner {
   padding-top: 2rem;
 }
+
+.waypoint-item-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 1rem;
+  column-gap: 0.5rem;
+  padding-left: 1rem;
+  align-items: center;
+}
