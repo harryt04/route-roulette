@@ -58,6 +58,23 @@ body {
   padding-top: 2rem;
 }
 
+.footer {
+  display: grid;
+  grid-template-columns: auto;
+  align-items: center;
+  row-gap: 1rem;
+}
+
+.footer-text {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.footer-button {
+  max-width: 100%;
+  justify-self: center;
+}
+
 /* if screen is tablet or BIGGER */
 @media (min-width: 768px) {
   .centeredSnackbar {

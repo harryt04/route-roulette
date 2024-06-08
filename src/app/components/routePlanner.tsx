@@ -10,7 +10,7 @@ import {
   Waypoint,
 } from '../client-utils/getRoute'
 import RouteIcon from '@mui/icons-material/Route'
-import useGeolocation from '../hooks/useGeolocation'
+import useGeolocation, { GeoLocationError } from '../hooks/useGeolocation'
 import TextField from '@mui/material/TextField'
 import DarkModeSwitch from './darkModeSwitch'
 import DirectionsIcon from '@mui/icons-material/Directions'
@@ -99,6 +99,20 @@ export const RoutePlanner = () => {
               <CircularProgress />
             </div>
           )}
+
+          {geoLocationError &&
+            geoLocationError === GeoLocationError.PERMISSION_DENIED && (
+              <>
+                <Typography variant="h6">
+                  Please allow geolocation permissions and refresh this page
+                </Typography>
+
+                <Typography variant="caption">
+                  Your location data is never stored by RouteRoulette anywhere.
+                  RouteRoulette respects your privacy.
+                </Typography>
+              </>
+            )}
 
           {!loading && waypoints.length > 0 && (
             <>

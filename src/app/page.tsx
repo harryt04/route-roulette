@@ -10,6 +10,7 @@ import '@fontsource/roboto/700.css'
 import DarkModeSwitch from './components/darkModeSwitch'
 import { RoutePlanner } from './components/routePlanner'
 import { Typography } from '@mui/material'
+import Footer from './components/footer'
 
 export default function Home() {
   const theme = useTheme()
@@ -50,6 +51,9 @@ export default function Home() {
         <Typography variant={isMobile ? 'h3' : 'h2'}>Route Roulette</Typography>
       </div>
       <RoutePlanner />
+
+      <div className="spacer"></div>
+      <Footer />
     </div>
   )
 }
