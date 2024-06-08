@@ -149,7 +149,12 @@ export const RoutePlanner = () => {
           )}
 
           {waypoints.length === 0 && initialized && !loading && (
-            <Typography variant="h6">No waypoints found</Typography>
+            <>
+              <div className="spacer"></div>
+              <Divider />
+              <div className="spacer"></div>
+              <Typography variant="h6">No waypoints found</Typography>
+            </>
           )}
         </CardContent>
       </Card>
