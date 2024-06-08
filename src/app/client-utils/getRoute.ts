@@ -4,7 +4,6 @@ export async function getRoute(
   latitude: number,
   longitude: number,
   radius: number,
-  numWaypoints: number,
   driveDuration: number,
   keywords?: string,
 ): Promise<Waypoint[]> {
@@ -13,7 +12,6 @@ export async function getRoute(
       latitude,
       longitude,
       radius,
-      numWaypoints,
       driveDuration,
       keywords,
     })

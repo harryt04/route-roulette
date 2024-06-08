@@ -18,6 +18,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 
 export const RoutePlanner = () => {
   // const [keywords, setKeywords] = useState('')
+  const [initialized, setInitialized] = useState(false)
   const [loading, setLoading] = useState(false)
   const [waypoints, setWaypoints] = useState<Waypoint[]>([])
   const [radius, setRadius] = useState(15)
@@ -27,13 +28,13 @@ export const RoutePlanner = () => {
   const { location, geoLocationError } = useGeolocation()
   const handlePlanRoute = async () => {
     setLoading(true)
+    setInitialized(true)
     // Implement route planning logic here
     if (!location) return
     const result = await getRoute(
       location.latitude,
       location.longitude,
       radius,
-      numPitStops,
       duration,
     )
     if (result) setWaypoints(result)
@@ -106,7 +107,7 @@ export const RoutePlanner = () => {
             <div className="waypoint-container">
               <Typography variant="h6">Waypoints</Typography>
               <ul>
-                {waypoints.map((waypoint, index) => (
+                {waypoints.slice(0, numPitStops).map((waypoint, index) => (
                   <li key={index}>{waypoint.name}</li>
                 ))}
               </ul>
@@ -115,7 +116,7 @@ export const RoutePlanner = () => {
                 variant="contained"
                 color="secondary"
                 target="_blank"
-                href={constructGoogleMapsUrl(waypoints)}
+                href={constructGoogleMapsUrl(waypoints.slice(0, numPitStops))}
                 startIcon={<DirectionsIcon />}
               >
                 Directions
@@ -123,7 +124,7 @@ export const RoutePlanner = () => {
             </div>
           )}
 
-          {waypoints.length === 0 && !loading && (
+          {waypoints.length === 0 && initialized && !loading && (
             <Typography variant="h6">No waypoints found</Typography>
           )}
         </CardContent>
