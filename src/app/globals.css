@@ -6,3 +6,36 @@ body {
   background-color: whitesmoke;
   min-height: 100vh;
 }
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  min-width: 40vw !important;
+  display: grid;
+  place-items: center;
+}
+
+.title-container {
+  display: grid;
+  place-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.form-container {
+  display: grid;
+  place-items: center;
+  row-gap: 1rem;
+  padding-bottom: 1rem;
+}
+.textfield {
+  width: 30vw !important;
+}
+
+.waypoint-container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

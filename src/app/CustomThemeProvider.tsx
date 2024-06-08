@@ -13,14 +13,23 @@ const ThemeProvider = ({ children }: any) => {
   const [theme, setTheme] = useState(lightTheme)
 
   useEffect(() => {
-    const userPrefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)',
-    ).matches
-    setTheme(userPrefersDark ? darkTheme : lightTheme)
+    // Check if a theme is stored in localStorage
+    const storedTheme = localStorage.getItem('theme')
+    if (storedTheme) {
+      setTheme(storedTheme === 'dark' ? darkTheme : lightTheme)
+    } else {
+      // If no theme is stored, use the user's system preference
+      const userPrefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)',
+      ).matches
+      setTheme(userPrefersDark ? darkTheme : lightTheme)
+    }
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     const handleChange = (e: any) => {
-      setTheme(e.matches ? darkTheme : lightTheme)
+      const newTheme = e.matches ? darkTheme : lightTheme
+      setTheme(newTheme)
+      localStorage.setItem('theme', e.matches ? 'dark' : 'light')
     }
     mediaQuery.addEventListener('change', handleChange)
 
@@ -30,7 +39,11 @@ const ThemeProvider = ({ children }: any) => {
   }, [])
 
   const toggleDarkMode = () => {
-    setTheme((prevTheme) => (prevTheme === lightTheme ? darkTheme : lightTheme))
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === lightTheme ? darkTheme : lightTheme
+      localStorage.setItem('theme', newTheme === darkTheme ? 'dark' : 'light')
+      return newTheme
+    })
   }
 
   return (

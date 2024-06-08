@@ -8,6 +8,8 @@ import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 import DarkModeSwitch from './components/darkModeSwitch'
+import { RoutePlanner } from './components/routePlanner'
+import { Typography } from '@mui/material'
 
 export default function Home() {
   const theme = useTheme()
@@ -44,8 +46,10 @@ export default function Home() {
 
   return (
     <div className="center">
-      <DarkModeSwitch />
-      route roulette
+      <div className="title-container">
+        <Typography variant="h2">Route Roulette</Typography>
+      </div>
+      <RoutePlanner />
     </div>
   )
 }
