@@ -28,10 +28,19 @@ body {
 
 .form-container {
   display: grid;
-  place-items: center;
-  row-gap: 1rem;
+  place-items: start;
+  row-gap: 1.5rem;
   padding-bottom: 1rem;
 }
+
+.button-container {
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 1rem;
+  /* max-width: 30vw; */
+  justify-content: start;
+}
+
 .textfield {
   width: 30vw !important;
 }
@@ -39,6 +48,11 @@ body {
 .waypoint-container {
   padding-top: 2rem;
   padding-bottom: 2rem;
+  display: grid;
+  row-gap: 0.3rem;
+  grid-template-columns: auto;
+  max-width: 30vw;
+  justify-content: start;
 }
 
 .loading-spinner {
@@ -73,6 +87,12 @@ body {
 .footer-button {
   max-width: 100%;
   justify-self: center;
+}
+
+.randomize-button {
+  max-width: 100%;
+  justify-self: start;
+  margin-bottom: 1.5rem !important;
 }
 
 /* if screen is tablet or BIGGER */
