@@ -41,11 +41,11 @@ export function constructGoogleMapsUrl(
   if (!waypoints || waypoints.length === 0) return ''
   const baseUrl = 'https://www.google.com/maps/dir/?api=1'
   const origin = `${currentLocation.latitude},${currentLocation.longitude}`
-  const destination = `${waypoints[waypoints.length - 1].location.lat},${waypoints[waypoints.length - 1].location.lng}`
+  const destination = `"${waypoints[waypoints.length - 1].name}"`
 
   const waypointParams = waypoints
-    .slice(1, waypoints.length - 1)
-    .map((waypoint) => `${waypoint.location.lat},${waypoint.location.lng}`)
+    .slice(0, waypoints.length - 1) // exclude destination
+    .map((waypoint) => `"${waypoint.name}"`)
     .join('|')
 
   return `${baseUrl}&origin=${origin}&destination=${destination}&waypoints=${waypointParams}`
