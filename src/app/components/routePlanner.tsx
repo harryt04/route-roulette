@@ -26,8 +26,8 @@ export const RoutePlanner = () => {
   const [initialized, setInitialized] = useState(false)
   const [loading, setLoading] = useState(false)
   const [waypoints, setWaypoints] = useState<Waypoint[]>([])
-  const [radius, setRadius] = useState(15)
-  const [numWaypoints, setNumWaypoints] = useState(5)
+  const [radius, setRadius] = useState(10)
+  const [numWaypoints, setNumWaypoints] = useState(3)
 
   const { location, geoLocationError } = useGeolocation()
 

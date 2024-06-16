@@ -4,7 +4,7 @@ import { haversineDistanceSort } from '../../shared-utils/sorting'
 
 export async function POST(req: NextRequest) {
   const body: any = await req.json()
-  const { latitude, longitude, radius, keywords } = body // radius is in miles
+  const { latitude, longitude, radius } = body // radius is in miles
 
   if (!latitude || !longitude || !radius) {
     return NextResponse.json(
@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
     const params = {
       location: `${latitude},${longitude}`,
       radius: radius * 1609.34, // Convert miles to meters
-      keyword: keywords || 'scenic',
+      keyword: 'scenic+viewpoint|park|tourist+attraction',
       key: apiKey,
     }
     const response = await axios.get(endpoint, { params })

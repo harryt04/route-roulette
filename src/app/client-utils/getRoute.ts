@@ -4,14 +4,12 @@ export async function getRoute(
   latitude: number,
   longitude: number,
   radius: number,
-  keywords?: string,
 ): Promise<Waypoint[]> {
   try {
     const response = await axios.post('/api/getRoute', {
       latitude,
       longitude,
       radius,
-      keywords,
     })
 
     return response.data.waypoints
