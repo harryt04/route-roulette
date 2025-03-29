@@ -21,7 +21,7 @@
     "axios": "^1.6.8",
     "next": "^14.2.26",
     "posthog-js": "^1.234.1",
-    "posthog-node": "^4.10.2",
+    "posthog-node": "^4.11.1",
     "react": "^18",
     "react-dom": "^18"
   },
