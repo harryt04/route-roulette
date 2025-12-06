@@ -20,7 +20,7 @@
     "@vercel/speed-insights": "^1.0.11",
     "axios": "^1.6.8",
     "next": "^14.2.33",
-    "posthog-js": "^1.293.0",
+    "posthog-js": "^1.302.2",
     "posthog-node": "^4.18.0",
     "react": "^18",
     "react-dom": "^18"
