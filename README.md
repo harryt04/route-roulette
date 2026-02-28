@@ -10,7 +10,7 @@ A simple, free, and open-source web app that helps get a random scenic drive nea
 - [Material UI](https://mui.com/)
 - [Google Maps API](https://developers.google.com/maps)
 
-[Visit Route Roulette](https://routeroulette.app)
+[Visit Route Roulette](https://rr.harryt.dev)
 
 ---
 
