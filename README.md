@@ -16,6 +16,8 @@ A simple, free, and open-source web app that helps get a random scenic drive nea
 
 ## Contributing
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
+
 We welcome contributions from the community! Follow the steps below to set up the project locally and start contributing.
 
 ### Run Locally
