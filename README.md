@@ -38,7 +38,7 @@ We welcome contributions from the community! Follow the steps below to set up th
 3. **Install dependencies:**
 
    ```sh
-   npm install
+   pnpm install
    ```
 
 4. **Configure environment variables:**
@@ -52,7 +52,7 @@ We welcome contributions from the community! Follow the steps below to set up th
 5. **Run the app:**
 
    ```sh
-   npm run dev
+   pnpm run dev
    ```
 
 6. **Submit a pull request targeting `master`:**
@@ -63,9 +63,16 @@ We welcome contributions from the community! Follow the steps below to set up th
 
 7. **Required build check for PRs:**
    ```sh
-   npm run build
+   pnpm run build
    ```
 
 ---
 
 Thank you for contributing to Route Roulette! Your help is greatly appreciated.
+
+## Package manager
+
+Use pnpm 11.24.0, pinned in `package.json`. Install it with
+`npm install --global pnpm@11.24.0` if pnpm is not available.
+Run `pnpm install --frozen-lockfile` after cloning. Commit `pnpm-lock.yaml`
+when dependencies change; do not generate npm or Yarn lockfiles.
