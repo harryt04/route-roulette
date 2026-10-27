@@ -72,7 +72,7 @@ Thank you for contributing to Route Roulette! Your help is greatly appreciated.
 
 ## Package manager
 
-Use pnpm 11.24.0, pinned in `package.json`. Install it with
-`npm install --global pnpm@11.24.0` if pnpm is not available.
+Use pnpm 10.33.4, pinned in `package.json`. Install it with
+`npm install --global pnpm@10.33.4` if pnpm is not available.
 Run `pnpm install --frozen-lockfile` after cloning. Commit `pnpm-lock.yaml`
 when dependencies change; do not generate npm or Yarn lockfiles.
