@@ -1,0 +1,4 @@
+allowBuilds:
+  '@vercel/speed-insights': true
+  'core-js': false
+  'protobufjs': true
