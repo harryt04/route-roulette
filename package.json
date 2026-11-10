@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@mui/types": "^7.2.14",
-    "@types/node": "^20",
+    "@types/node": "^26.6.6",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
@@ -38,6 +38,6 @@
   },
   "packageManager": "pnpm@10.33.4",
   "engines": {
-    "node": "24.x"
+    "node": "26.x"
   }
 }
