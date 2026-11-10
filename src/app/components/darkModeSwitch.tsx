@@ -41,6 +41,7 @@ const DarkModeSwitch = () => {
       <DarkModeToggle
         checked={theme.palette.mode === 'dark'}
         onChange={toggleDarkMode}
+        inputProps={{ 'aria-label': 'Dark mode' }}
       />
     </Box>
   )

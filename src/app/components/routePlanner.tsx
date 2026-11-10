@@ -103,7 +103,7 @@ export const RoutePlanner = () => {
             geoLocationError === GeoLocationError.PERMISSION_DENIED && (
               <>
                 <div className="spacer"></div>
-                <Typography variant="h6">
+                <Typography variant="h6" component="h2">
                   Please allow geolocation permissions and refresh this page
                 </Typography>
 
@@ -129,7 +129,9 @@ export const RoutePlanner = () => {
                 >
                   Randomize waypoints
                 </Button>
-                <Typography variant="h6">Waypoints</Typography>
+                <Typography variant="h6" component="h2">
+                  Waypoints
+                </Typography>
                 {waypoints.slice(0, numWaypoints).map((waypoint, index) => (
                   <div key={index} className="waypoint-item-container">
                     <IconButton
@@ -160,7 +162,9 @@ export const RoutePlanner = () => {
           {waypoints.length === 0 && initialized && !loading && (
             <>
               <div className="spacer"></div>
-              <Typography variant="h6">No waypoints found</Typography>
+              <Typography variant="h6" component="h2">
+                No waypoints found
+              </Typography>
             </>
           )}
         </CardContent>
