@@ -79,5 +79,5 @@ when dependencies change; do not generate npm or Yarn lockfiles.
 
 ## Node.js runtime
 
-Use Node.js 24 for local development, validation, and deployment.
-The runtime is declared in `package.json` and `.nvmrc`.
+Use Node.js 26 (Active LTS) for local development, validation, and deployment.
+The runtime is declared in `package.json` (`26.x`) and pinned to an exact patch in `.nvmrc`.
