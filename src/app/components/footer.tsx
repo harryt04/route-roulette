@@ -13,7 +13,6 @@ const Footer = () => {
         href="https://buymeacoffee.com/harryt04"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="BuyMeACofee"
         startIcon={<AttachMoneyIcon />}
         variant="contained"
         color="primary"
@@ -26,7 +25,6 @@ const Footer = () => {
         href="https://github.com/harryt04/route-roulette"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="GitHub"
         startIcon={<GitHubIcon />}
         className="footer-button"
         variant="outlined"
@@ -39,7 +37,6 @@ const Footer = () => {
         href="https://forms.gle/s4hxSSyAcMCyftmn9"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="BugReport"
         startIcon={<BugReportIcon />}
         className="footer-button"
         variant="outlined"

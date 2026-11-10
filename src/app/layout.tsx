@@ -7,8 +7,19 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://rr.harryt.dev'),
   title: 'Route Roulette',
-  description: 'Randomly choose a restaurant near you',
+  description:
+    'Get a random scenic drive near you. Choose a search radius, shuffle nearby viewpoints, parks and attractions, then open the route in Google Maps.',
+  alternates: { canonical: '/' },
+  manifest: '/site.webmanifest',
+  icons: {
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
 }
 
 export default function RootLayout({
@@ -19,39 +30,19 @@ export default function RootLayout({
   const isProduction = process.env.NODE_ENV === 'production'
 
   return (
-    <>
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/apple-touch-icon.png"
-      ></link>
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon-32x32.png"
-      ></link>
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon-16x16.png"
-      ></link>
-      <link rel="manifest" href="/site.webmanifest"></link>
-      <html lang="en">
+    <html lang="en">
+      <body>
         <AppRouterCacheProvider>
-          <CustomThemeProvider>
-            <body>{children}</body>
-
-            {isProduction && (
-              <>
-                <Analytics />
-                <SpeedInsights />
-              </>
-            )}
-          </CustomThemeProvider>
+          <CustomThemeProvider>{children}</CustomThemeProvider>
         </AppRouterCacheProvider>
-      </html>
-    </>
+
+        {isProduction && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        )}
+      </body>
+    </html>
   )
 }
